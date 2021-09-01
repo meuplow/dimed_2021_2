@@ -1,12 +1,12 @@
 <h2>Cadastro de Usuário</h2>
 
 <form [formGroup]="dadosUsuarioForm" (ngSubmit)="onSubmit()">
-    <mat-form-field>
+    <!--<mat-form-field>
         <mat-label>Nome</mat-label>
         <input matInput formControlName="name" required maxlength="100">
         <mat-error *ngIf="dadosUsuarioForm.controls['name'].hasError('required') ||
                           dadosUsuarioForm.controls['name'].hasError('maxLength')">
         O nome é obrigatório e deve ter no máximo 100 caracteres.
         </mat-error>
-    </mat-form-field>
+    </mat-form-field>-->
 </form>
