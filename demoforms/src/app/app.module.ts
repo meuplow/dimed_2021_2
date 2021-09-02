@@ -15,6 +15,7 @@ import { PaginanaoencontradaComponent } from './paginanaoencontrada/paginanaoenc
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { BoasvindasComponent } from './boasvindas/boasvindas.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -32,8 +33,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    UsuariosModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    UsuariosModule,
     AppRoutingModule
   ],
   providers: [],

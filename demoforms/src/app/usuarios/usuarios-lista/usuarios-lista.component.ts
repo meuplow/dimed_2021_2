@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Usuario } from 'src/app/models/usuario.model';
+import { UsuarioCadastrado } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-usuarios-lista',
@@ -9,7 +9,7 @@ import { Usuario } from 'src/app/models/usuario.model';
 })
 export class UsuariosListaComponent implements OnInit {
   colunas: string[] = ['id', 'name'];
-  usuario: Usuario[] = [
+  usuario: UsuarioCadastrado[] = [
     {
       id: '1',
       name: 'João',

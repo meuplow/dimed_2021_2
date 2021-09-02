@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-usuarios-cadastro',
@@ -16,7 +17,8 @@ export class UsuariosCadastroComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private usuarioService: UsuarioService
     ) { }
 
   ngOnInit(): void {
@@ -25,7 +27,16 @@ export class UsuariosCadastroComponent implements OnInit {
   onSubmit(){
     const dadosUsuario = this.dadosUsuarioForm.value;
     console.log(dadosUsuario);
-    this.router.navigate(['/usuarios']);
+    this.usuarioService.cadastrar(dadosUsuario).subscribe(
+      resultado => {
+        console.log(resultado);
+        this.router.navigate(['/usuarios']);
+      },
+      erro => {
+        console.log(erro);
+        alert('Erro ao cadastrar usuário');
+      }
+    );
   }
 
 }
