@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { UsuarioCadastrado } from 'src/app/models/usuario.model';
+import { ConsultaPaginada, Usuario} from 'src/app/models/consultapaginada.model';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-usuarios-lista',
@@ -9,30 +10,24 @@ import { UsuarioCadastrado } from 'src/app/models/usuario.model';
 })
 export class UsuariosListaComponent implements OnInit {
   colunas: string[] = ['id', 'name'];
-  usuario: UsuarioCadastrado[] = [
-    {
-      id: '1',
-      name: 'João',
-      job: 'Desenvolvedor',
-      createdAt: new Date()
-    },
-    {
-      id: '2',
-      name: 'Maria',
-      job: 'Desenvolvedor',
-      createdAt: new Date()
-    },
-    {
-      id: '3',
-      name: 'Fulano',
-      job: 'Analista',
-      createdAt: new Date()
-    }
-  ];
+  usuarios: Usuario[] = [];
 
-  constructor() { }
+  constructor(private usuarioServices: UsuarioService) { }
 
   ngOnInit(): void {
+    this.usuarioServices.buscarTodos().subscribe(
+      dados => {
+        console.log(dados);
+        this.usuarios = dados.data;
+      },
+      erro => {
+        console.log(erro);
+        alert('Erro ao buscar usuários');
+        this.usuarios = [];
+      }
+    );
   }
 
 }
+
+
