@@ -1,7 +1,7 @@
 <div *ngIf="usuario">
-  <h2>Detalhes Usuário {{usuario.data.id}}</h2>
+  <h2>Detalhes do Usuário {{usuario.data.id}}</h2>
+  <img [src]="usuario.data.avatar">
   <p><b>EMAIL:</b> {{usuario.data.email}}</p>
   <p><b>NOME:</b> {{usuario.data.first_name}}</p>
   <p><b>SOBRENOME:</b> {{usuario.data.last_name}}</p>
-  <img [src]="usuario.data.avatar">
 </div>
