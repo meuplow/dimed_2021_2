@@ -16,5 +16,6 @@ export interface Usuario {
 }
 
 export interface Support {
-  url: string
+  url: string;
+  text: string;
 }

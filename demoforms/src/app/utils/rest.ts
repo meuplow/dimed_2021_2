@@ -19,5 +19,5 @@ export function tratadorDeErros(erro: HttpErrorResponse){
     erro: erro.error,
     mensagem: msg,
     mensagemOriginal: erro.message
-  })
+  });
 }
